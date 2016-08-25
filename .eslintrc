@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "meteor",
+    "react",
+    "jsx-a11y"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:meteor/recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "meteor/eventmap-params": [
+      2, { "templateInstanceParamName": "instance" }
+    ],
+    "import/no-unresolved": 0,
+    "react/display-name": 0
+  }
+}
