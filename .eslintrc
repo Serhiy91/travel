@@ -13,6 +13,9 @@
     "meteor/eventmap-params": [
       2, { "templateInstanceParamName": "instance" }
     ],
+    "no-underscore-dangle": [
+      "error", { "allow": ["__", "_id"] }
+    ],
     "import/no-unresolved": 0,
     "react/display-name": 0
   }
