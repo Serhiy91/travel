@@ -1,18 +1,17 @@
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Layout from './layout.jsx';
 
-const muiTheme = getMuiTheme({});
+const muiTheme = getMuiTheme(null);
 
-const MainLayout = ({ content = () => null }) => (
-    <MuiThemeProvider muiTheme={muiTheme}>
-        <Layout content={content} />
-    </MuiThemeProvider>
+const MainLayout = ({ children }) => (
+  <MuiThemeProvider muiTheme={muiTheme}>
+    {children}
+  </MuiThemeProvider>
 );
 
 MainLayout.propTypes = {
-    content: React.PropTypes.func,
+  children: React.PropTypes.element,
 };
 
 export default MainLayout;

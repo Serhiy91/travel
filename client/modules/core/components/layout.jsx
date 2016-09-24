@@ -1,9 +1,12 @@
 import React from 'react';
+import MaterialUiContainer from './material-ui-container';
 
 const MainLayout = ({ content = () => null }) => (
-  <div>
-    {content()}
-  </div>
+  <MaterialUiContainer>
+    <div>
+      {content()}
+    </div>
+  </MaterialUiContainer>
 );
 
 MainLayout.propTypes = {

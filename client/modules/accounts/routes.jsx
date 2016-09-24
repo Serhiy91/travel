@@ -6,7 +6,7 @@ export default function (injectDeps, { FlowRouter, MainLayout }) {
   const MainLayoutCtx = injectDeps(MainLayout);
 
   FlowRouter.route('/sign-in', {
-    name: 'test',
+    name: 'signIn',
     action() {
       mount(MainLayoutCtx, {
         content: () => <SignIn />,
