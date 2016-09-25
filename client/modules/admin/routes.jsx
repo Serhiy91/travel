@@ -54,6 +54,15 @@ export default function (injectDeps, { FlowRouter }) {
     },
   });
 
+  newsRoutes.route('/edit/:articleId', {
+    name: 'admin.news.edit',
+    action() {
+      mount(MainLayoutCtx, {
+        content: () => <CheckRole admin><NewsForm /></CheckRole>,
+      });
+    },
+  });
+
   adminRoutes.route('/contacts', {
     name: 'admin.contacts',
     action() {

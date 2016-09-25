@@ -3,7 +3,7 @@ import AdminNews from '../components/admin_news/admin_news.jsx';
 
 export const composer = ({ context }, onData) => {
   const { Meteor, Collections } = context();
-  if (Meteor.subscribe('articles.admin', true).ready()) {
+  if (Meteor.subscribe('articles.admin', { light: true }).ready()) {
     const articles = Collections.Articles.find().fetch();
     onData(null, { articles });
   }
@@ -11,6 +11,7 @@ export const composer = ({ context }, onData) => {
 
 export const depsMapper = (context, actions) => ({
   goTo: actions.core.goTo,
+  togglePublicState: actions.admin.togglePublicState,
   context: () => context,
 });
 

@@ -30,11 +30,12 @@ class NewsForm extends React.Component {
     this.props.createArticle(model);
   }
   render() {
+    const { article = {} } = this.props;
     return (
       <div className="news-form">
         <Paper zDepth={1}>
           <div className="title-panel">
-            <span className="title"><T>create_news</T></span>
+            <span className="title"><T>{article ? 'edit' : 'create_news'}</T></span>
           </div>
           <Divider />
           <div className="form">
@@ -46,12 +47,14 @@ class NewsForm extends React.Component {
                 name="title"
                 floatingLabelText={i18n.__('title')}
                 style={styles.title}
+                value={article.title}
                 required
               />
               <FormsyText
                 name="text"
                 floatingLabelText={i18n.__('text')}
                 style={styles.title}
+                value={article.text}
                 rows={2}
                 multiLine
                 required
@@ -60,6 +63,7 @@ class NewsForm extends React.Component {
                 name="isPublic"
                 label={i18n.__('publish')}
                 style={styles.toggle}
+                value={article.isPublic}
               />
               <RaisedButton
                 type="submit"
@@ -76,6 +80,7 @@ class NewsForm extends React.Component {
 }
 
 NewsForm.propTypes = {
+  article: PropTypes.object,
   createArticle: PropTypes.func,
 };
 

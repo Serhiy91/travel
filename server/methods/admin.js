@@ -16,5 +16,13 @@ export default () => {
         publicDate: article.public ? date : null,
       }));
     },
+    'admin.togglePublicState'(articleId, publicState) {
+      check(articleId, String);
+      check(publicState, Boolean);
+      const user = Meteor.user();
+      if (!user || !user.isAdmin) throw new Meteor.Error('403', 'Permission denied');
+
+      Articles.update(articleId, { $set: { isPublic: publicState } });
+    },
   });
 };

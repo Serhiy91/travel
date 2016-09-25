@@ -8,4 +8,9 @@ export default {
       }
     });
   },
+  togglePublicState({ Meteor }, articleId, publicState) {
+    Meteor.call('admin.togglePublicState', articleId, publicState, (err) => {
+      if (err) console.error(err.reason);
+    });
+  },
 };
