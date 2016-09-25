@@ -1,11 +1,10 @@
 import { useDeps, composeWithTracker, composeAll } from 'mantra-core';
-import CheckRole from '../components/partial/check_role.jsx';
+import AdminNavbar from '../components/partial/admin_navbar.jsx';
 
 export const composer = ({ context }, onData) => {
-  const { Meteor } = context();
-  if (Meteor.subscribe('user').ready()) {
-    onData(null, { user: Meteor.user() });
-  }
+  const { FlowRouter } = context();
+  const currentRoute = FlowRouter.getRouteName();
+  onData(null, { currentRoute });
 };
 
 export const depsMapper = (context, actions) => ({
@@ -16,4 +15,4 @@ export const depsMapper = (context, actions) => ({
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(CheckRole);
+)(AdminNavbar);

@@ -1,10 +1,11 @@
 import { useDeps, composeWithTracker, composeAll } from 'mantra-core';
-import CheckRole from '../components/partial/check_role.jsx';
+import AdminNews from '../components/admin_news/admin_news.jsx';
 
 export const composer = ({ context }, onData) => {
-  const { Meteor } = context();
-  if (Meteor.subscribe('user').ready()) {
-    onData(null, { user: Meteor.user() });
+  const { Meteor, Collections } = context();
+  if (Meteor.subscribe('articles.admin', true).ready()) {
+    const articles = Collections.Articles.find().fetch();
+    onData(null, { articles });
   }
 };
 
@@ -16,4 +17,4 @@ export const depsMapper = (context, actions) => ({
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(CheckRole);
+)(AdminNews);

@@ -1,0 +1,19 @@
+{
+  "tours": "Тури",
+  "visas": "Візи",
+  "news": "Новини",
+  "contacts": "Контакти",
+  "login": "Увійти",
+  "error": "Помилка",
+  "email": "Email",
+  "this is not a valid email": "Некоректний формат email",
+  "password": "Пароль",
+  "title": "Заголовок",
+  "public_status": "Статус публікації",
+  "date_create": "Дата створення",
+  "public_date": "Дата публікації",
+  "create_news": "Створити статтю",
+  "text": "Текст",
+  "publish": "Опублікувати",
+  "create": "Створити"
+}

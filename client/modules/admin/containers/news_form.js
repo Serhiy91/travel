@@ -1,19 +1,16 @@
 import { useDeps, composeWithTracker, composeAll } from 'mantra-core';
-import CheckRole from '../components/partial/check_role.jsx';
+import NewsForm from '../components/admin_news/news_form.jsx';
 
 export const composer = ({ context }, onData) => {
-  const { Meteor } = context();
-  if (Meteor.subscribe('user').ready()) {
-    onData(null, { user: Meteor.user() });
-  }
+  onData(null, { });
 };
 
 export const depsMapper = (context, actions) => ({
-  goTo: actions.core.goTo,
+  createArticle: actions.admin.createArticle,
   context: () => context,
 });
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(CheckRole);
+)(NewsForm);

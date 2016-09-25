@@ -5,6 +5,8 @@ import FormsyText from 'formsy-material-ui/lib/FormsyText';
 import Person from 'material-ui/svg-icons/social/person';
 import VpnKey from 'material-ui/svg-icons/communication/vpn-key';
 import RaisedButton from 'material-ui/RaisedButton';
+import i18n from 'meteor/universe:i18n';
+import T from '/lib/i18n';
 import { grey500 } from 'material-ui/styles/colors';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
@@ -46,7 +48,7 @@ class SignIn extends React.Component {
     const error = this.props.loginError;
     return (
       <Card style={style.card}>
-        <CardTitle title="Login" titleStyle={style.titleStyle} />
+        <CardTitle title={i18n.__('login')} titleStyle={style.titleStyle} />
         <Divider />
         <CardText>
           <Formsy.Form
@@ -56,7 +58,7 @@ class SignIn extends React.Component {
           >
             {error ?
               <div className="error">
-                <span>Error: </span>
+                <span><T>error</T>: </span>
                 <span>{error}</span>
               </div>
               : ''}
@@ -68,9 +70,9 @@ class SignIn extends React.Component {
               <FormsyText
                 name="email"
                 type="email"
-                floatingLabelText="Email"
+                floatingLabelText={i18n.__('email')}
                 validations="isEmail"
-                validationError="This is not a valid email"
+                validationError={i18n.__('email_error')}
                 style={style.formsyText}
                 required
               />
@@ -84,13 +86,13 @@ class SignIn extends React.Component {
               <FormsyText
                 name="password"
                 type="password"
-                floatingLabelText="Password"
+                floatingLabelText={i18n.__('password')}
                 style={style.formsyText}
                 required
               />
             </div>
             <RaisedButton
-              label="Login"
+              label={i18n.__('login')}
               type="submit"
               disabled={!this.state.canSubmit}
               style={style.raisedButton}
