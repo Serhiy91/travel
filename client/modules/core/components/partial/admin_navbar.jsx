@@ -6,14 +6,10 @@ import BeachAccess from 'material-ui/svg-icons/places/beach-access';
 import ContactMail from 'material-ui/svg-icons/communication/contact-mail';
 import ImportContacts from 'material-ui/svg-icons/communication/import-contacts';
 import Place from 'material-ui/svg-icons/maps/place';
+import AppBar from 'material-ui/AppBar';
 import { pinkA200 } from 'material-ui/styles/colors';
 
 const styles = {
-  drawer: {
-    height: 'calc(100% - 64px)',
-    top: '64px',
-    zIndex: 1000,
-  },
   menuItem: {
     color: pinkA200,
   },
@@ -27,7 +23,11 @@ class AdminNavBar extends React.Component {
     const { goTo } = this.props;
     return (
       <nav>
-        <Drawer open containerStyle={styles.drawer}>
+        <Drawer open>
+          <AppBar
+            title="Visa&Travel"
+            showMenuIconButton={false}
+          />
           <MenuItem
             leftIcon={<BeachAccess />}
             onTouchTap={() => goTo('admin.tours')}

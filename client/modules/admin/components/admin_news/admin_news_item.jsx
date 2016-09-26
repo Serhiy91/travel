@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
 import Toggle from 'material-ui/Toggle';
+import IconButton from 'material-ui/IconButton';
+import Delete from 'material-ui/svg-icons/action/delete';
 import moment from 'moment';
 import { TableRow, TableRowColumn } from 'material-ui/Table';
 
 class AdminNewsItem extends React.Component {
   render() {
-    const { article, i, togglePublicState, goTo } = this.props;
+    const { article, i, togglePublicState, deleteArticle, goTo } = this.props;
     return (
       <TableRow>
         <TableRowColumn className="col-number">{i + 1}</TableRowColumn>
@@ -30,6 +32,11 @@ class AdminNewsItem extends React.Component {
             onToggle={() => togglePublicState(article._id, !article.isPublic)}
           />
         </TableRowColumn>
+        <TableRowColumn className="col-btn">
+          <IconButton onTouchTap={() => deleteArticle(article._id)}>
+            <Delete />
+          </IconButton>
+        </TableRowColumn>
       </TableRow>
     );
   }
@@ -40,6 +47,7 @@ AdminNewsItem.propTypes = {
   article: PropTypes.object,
   goTo: PropTypes.func,
   togglePublicState: PropTypes.func,
+  deleteArticle: PropTypes.func,
 };
 
 export default AdminNewsItem;

@@ -12,7 +12,7 @@ export const composer = ({ context }, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  createArticle: actions.admin.createArticle,
+  upsertArticle: actions.admin.upsertArticle,
   context: () => context,
 });
 

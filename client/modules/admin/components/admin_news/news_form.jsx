@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import FormsyText from 'formsy-material-ui/lib/FormsyText';
 import FormsyToggle from 'formsy-material-ui/lib/FormsyToggle';
+import EditorMaterial from '/client/singles/editor_material.jsx';
 import i18n from 'meteor/universe:i18n';
 import T from '/lib/i18n';
 
@@ -27,7 +28,8 @@ class NewsForm extends React.Component {
     this.submitForm = this.submitForm.bind(this);
   }
   submitForm(model) {
-    this.props.createArticle(model);
+    const { article } = this.props;
+    this.props.upsertArticle(model, article || article._id);
   }
   render() {
     const { article = {} } = this.props;
@@ -67,13 +69,14 @@ class NewsForm extends React.Component {
               />
               <RaisedButton
                 type="submit"
-                label={i18n.__('create')}
+                label={i18n.__(article ? 'update' : 'create')}
                 style={styles.submitBtn}
                 primary
               />
             </Formsy.Form>
           </div>
         </Paper>
+        <Paper zDepth={1} className="editor-wrapper"><EditorMaterial /></Paper>
       </div>
     );
   }
@@ -81,7 +84,7 @@ class NewsForm extends React.Component {
 
 NewsForm.propTypes = {
   article: PropTypes.object,
-  createArticle: PropTypes.func,
+  upsertArticle: PropTypes.func,
 };
 
 export default NewsForm;

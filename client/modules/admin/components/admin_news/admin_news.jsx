@@ -10,7 +10,7 @@ import {
 
 class AdminNews extends React.Component {
   render() {
-    const { articles, goTo, togglePublicState } = this.props;
+    const { articles, goTo, togglePublicState, deleteArticle } = this.props;
     return (
       <div className="admin-news">
         <Paper zDepth={1}>
@@ -31,6 +31,7 @@ class AdminNews extends React.Component {
                 <TableHeaderColumn className="col-date"><T>date_create</T></TableHeaderColumn>
                 <TableHeaderColumn className="col-date"><T>public_date</T></TableHeaderColumn>
                 <TableHeaderColumn className="col-toggle"><T>public_status</T></TableHeaderColumn>
+                <TableHeaderColumn className="col-btn" />
               </TableRow>
             </TableHeader>
 
@@ -41,6 +42,7 @@ class AdminNews extends React.Component {
                   article={article}
                   i={i}
                   togglePublicState={togglePublicState}
+                  deleteArticle={deleteArticle}
                   goTo={goTo}
                 />
               ))}
@@ -57,6 +59,7 @@ AdminNews.propTypes = {
   articles: PropTypes.array,
   goTo: PropTypes.func,
   togglePublicState: PropTypes.func,
+  deleteArticle: PropTypes.func,
 };
 
 export default AdminNews;

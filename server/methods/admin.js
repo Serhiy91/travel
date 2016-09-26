@@ -1,19 +1,20 @@
 import { Meteor } from 'meteor/meteor';
-import { check } from 'meteor/check';
+import { check, Match } from 'meteor/check';
 import { Articles } from '/lib/collections';
 import { _ } from 'meteor/underscore';
 
 export default () => {
   Meteor.methods({
-    'admin.createArticle'(article) {
+    'admin.upsertArticle'(article, articleId) {
       check(article, Object);
+      check(articleId, Match.Maybe(Object));
       const user = Meteor.user();
       if (!user || !user.isAdmin) throw new Meteor.Error('403', 'Permission denied');
       const date = new Date();
 
-      Articles.insert(_.extend(article, {
+      Articles.upsert(articleId, _.extend(article, {
         date,
-        publicDate: article.public ? date : null,
+        publicDate: article.isPublic ? date : null,
       }));
     },
     'admin.togglePublicState'(articleId, publicState) {
@@ -22,7 +23,17 @@ export default () => {
       const user = Meteor.user();
       if (!user || !user.isAdmin) throw new Meteor.Error('403', 'Permission denied');
 
-      Articles.update(articleId, { $set: { isPublic: publicState } });
+      Articles.update(articleId, { $set: {
+        isPublic: publicState,
+        publicDate: publicState ? new Date() : null,
+      } });
+    },
+    'admin.deleteArticle'(articleId) {
+      check(articleId, String);
+      const user = Meteor.user();
+      if (!user || !user.isAdmin) throw new Meteor.Error('403', 'Permission denied');
+
+      Articles.remove(articleId);
     },
   });
 };

@@ -11,6 +11,7 @@
     "test-watch": "npm run testonly -- --watch --watch-extensions js"
   },
   "dependencies": {
+    "draft-js": "^0.9.1",
     "i18n-2": "^0.6.3",
     "mantra-core": "^1.6.1",
     "material-ui": "^0.15.4",

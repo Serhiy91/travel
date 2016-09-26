@@ -12,6 +12,7 @@ export const composer = ({ context }, onData) => {
 export const depsMapper = (context, actions) => ({
   goTo: actions.core.goTo,
   togglePublicState: actions.admin.togglePublicState,
+  deleteArticle: actions.admin.deleteArticle,
   context: () => context,
 });
 
