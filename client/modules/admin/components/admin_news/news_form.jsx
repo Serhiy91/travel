@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import FormsyText from 'formsy-material-ui/lib/FormsyText';
 import FormsyToggle from 'formsy-material-ui/lib/FormsyToggle';
-import EditorMaterial from '/client/singles/editor_material.jsx';
+import EditorMaterial from '/client/singles/editor/editor_material.jsx';
 import i18n from 'meteor/universe:i18n';
 import T from '/lib/i18n';
 
