@@ -10,15 +10,21 @@ import i18n from 'meteor/universe:i18n';
 import T from '/lib/i18n';
 
 const styles = {
+  form: {
+    overflow: 'hidden',
+  },
   title: {
-    width: '100%',
+    width: 'calc(100% - 300px)',
   },
   toggle: {
     width: 'auto',
-    marginTop: '10px',
+    marginTop: '35px',
+    marginRight: '25px',
+    float: 'right',
   },
   submitBtn: {
-    marginTop: '15px',
+    marginTop: '28px',
+    float: 'right',
   },
 };
 
@@ -42,6 +48,7 @@ class NewsForm extends React.Component {
           <Divider />
           <div className="form">
             <Formsy.Form
+              style={styles.form}
               onValidSubmit={this.submitForm}
               noValidate
             >
@@ -52,26 +59,17 @@ class NewsForm extends React.Component {
                 value={article.title}
                 required
               />
-              <FormsyText
-                name="text"
-                floatingLabelText={i18n.__('text')}
-                style={styles.title}
-                value={article.text}
-                rows={2}
-                multiLine
-                required
+              <RaisedButton
+                type="submit"
+                label={i18n.__(article ? 'update' : 'create')}
+                style={styles.submitBtn}
+                primary
               />
               <FormsyToggle
                 name="isPublic"
                 label={i18n.__('publish')}
                 style={styles.toggle}
                 value={article.isPublic}
-              />
-              <RaisedButton
-                type="submit"
-                label={i18n.__(article ? 'update' : 'create')}
-                style={styles.submitBtn}
-                primary
               />
             </Formsy.Form>
           </div>

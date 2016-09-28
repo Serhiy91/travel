@@ -71,8 +71,157 @@ const BLOCK_TYPES = [
   },
 ];
 
+const COLORS = [
+  {
+    label: 'red',
+    style: 'red',
+  },
+  {
+    label: 'orange',
+    style: 'orange',
+  },
+  {
+    label: 'yellow',
+    style: 'yellow',
+  },
+  {
+    label: 'green',
+    style: 'green',
+  },
+  {
+    label: 'blue',
+    style: 'blue',
+  },
+  {
+    label: 'indigo',
+    style: 'indigo',
+  },
+  {
+    label: 'violet',
+    style: 'violet',
+  },
+];
+
+const COLOR_STYLE_MAP = {
+  red: {
+    color: 'rgba(255, 0, 0, 1.0)',
+  },
+  orange: {
+    color: 'rgba(255, 127, 0, 1.0)',
+  },
+  yellow: {
+    color: 'rgba(180, 180, 0, 1.0)',
+  },
+  green: {
+    color: 'rgba(0, 180, 0, 1.0)',
+  },
+  blue: {
+    color: 'rgba(0, 0, 255, 1.0)',
+  },
+  indigo: {
+    color: 'rgba(75, 0, 130, 1.0)',
+  },
+  violet: {
+    color: 'rgba(127, 0, 255, 1.0)',
+  },
+};
+
+const FONT_STYLES = [
+  {
+    label: 'arial',
+    style: 'arial',
+  },
+  {
+    label: 'times_new_roman',
+    style: 'times-new-roman',
+  },
+  {
+    label: 'calibri',
+    style: 'calibri',
+  },
+  {
+    label: 'cambria',
+    style: 'cambria',
+  },
+  {
+    label: 'comic_sans_ms',
+    style: 'comic-sans-ms',
+  },
+  {
+    label: 'courier_new',
+    style: 'courier-new',
+  },
+  {
+    label: 'roboto',
+    style: 'roboto',
+  },
+];
+
+const SIZE_STYLES = [
+  {
+    label: 8,
+    style: 8,
+  },
+  {
+    label: 9,
+    style: 9,
+  },
+  {
+    label: 10,
+    style: 10,
+  },
+  {
+    label: 11,
+    style: 11,
+  },
+  {
+    label: 12,
+    style: 12,
+  },
+  {
+    label: 14,
+    style: 14,
+  },
+  {
+    label: 18,
+    style: 18,
+  },
+  {
+    label: 24,
+    style: 24,
+  },
+  {
+    label: 30,
+    style: 30,
+  },
+  {
+    label: 36,
+    style: 36,
+  },
+  {
+    label: 48,
+    style: 48,
+  },
+  {
+    label: 60,
+    style: 60,
+  },
+  {
+    label: 72,
+    style: 72,
+  },
+  {
+    label: 96,
+    style: 96,
+  },
+];
+
 export {
   INLINE_STYLES,
   HEADER_STYLES,
   BLOCK_TYPES,
+  COLORS,
+  COLOR_STYLE_MAP,
+  FONT_STYLES,
+  SIZE_STYLES,
 };
