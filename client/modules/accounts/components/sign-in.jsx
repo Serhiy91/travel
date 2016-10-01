@@ -36,14 +36,12 @@ const style = {
 };
 
 class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { canSubmit: false };
-    this.submitForm = this.submitForm.bind(this);
-  }
-  submitForm(data) {
+  state = {
+    canSubmit: false,
+  };
+  submitForm = (data) => {
     this.props.signIn(data.email, data.password);
-  }
+  };
   render() {
     const error = this.props.loginError;
     return (

@@ -2,14 +2,15 @@ import React from 'react';
 import IconButton from 'material-ui/IconButton';
 import InsertLink from 'material-ui/svg-icons/editor/insert-link';
 import InsertPhoto from 'material-ui/svg-icons/editor/insert-photo';
+import { Editor, EditorState, RichUtils } from 'draft-js';
+import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
+
 import InlineControls from './inline_controls';
 import BlockControls from './block_controls';
 import HeaderControls from './header_controls';
 import ColorControls from './color_controls';
 import FontControls from './font_controls';
 import FontSizeControls from './font_size_controls';
-import { Editor, EditorState, RichUtils } from 'draft-js';
-import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import { COLOR_STYLE_MAP } from './config';
 
 const styles = {
@@ -23,23 +24,20 @@ const styles = {
 };
 
 class EditorMaterial extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { editorState: EditorState.createEmpty() };
-    this.onChange = this.onChange.bind(this);
-    this.handleKeyCommand = this.handleKeyCommand.bind(this);
-  }
-  onChange(editorState) {
+  state = {
+    editorState: EditorState.createEmpty(),
+  };
+  onChange = (editorState) => {
     this.setState({ editorState });
-  }
-  handleKeyCommand(command) {
+  };
+  handleKeyCommand = (command) => {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
     if (newState) {
       this.onChange(newState);
       return 'handled';
     }
     return 'not-handled';
-  }
+  };
   render() {
     const { editorState } = this.state;
     const currentStyle = editorState.getCurrentInlineStyle();

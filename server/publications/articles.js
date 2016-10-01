@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Articles } from '/lib/collections';
+import { Articles } from '/lib/collections.js';
 import { check, Match } from 'meteor/check';
 
 export default () => {

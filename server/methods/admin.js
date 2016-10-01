@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
-import { Articles } from '/lib/collections';
+import { Articles } from '/lib/collections.js';
 import { _ } from 'meteor/underscore';
 
 export default () => {

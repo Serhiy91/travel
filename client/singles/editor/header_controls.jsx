@@ -20,14 +20,10 @@ const styles = {
 };
 
 class HeaderControls extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleBlockType = this.toggleBlockType.bind(this);
-  }
-  toggleBlockType(e, key, value) {
+  toggleBlockType = (e, key, value) => {
     const { changeEditor, editorState } = this.props;
     changeEditor(RichUtils.toggleBlockType(editorState, value));
-  }
+  };
   render() {
     const { blockType } = this.props;
     const isHeaderStyle = HEADER_STYLES.some(type => type.style === blockType);

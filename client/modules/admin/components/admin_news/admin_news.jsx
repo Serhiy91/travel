@@ -2,11 +2,12 @@ import React, { PropTypes } from 'react';
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton';
 import AddCircleOutline from 'material-ui/svg-icons/content/add-circle-outline';
-import AdminNewsItem from './admin_news_item.jsx';
 import T from '/lib/i18n';
 import {
   Table, TableBody, TableHeader, TableHeaderColumn, TableRow,
 } from 'material-ui/Table';
+
+import AdminNewsItem from './admin_news_item.jsx';
 
 class AdminNews extends React.Component {
   render() {

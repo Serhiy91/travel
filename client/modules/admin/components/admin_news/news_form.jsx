@@ -5,9 +5,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import FormsyText from 'formsy-material-ui/lib/FormsyText';
 import FormsyToggle from 'formsy-material-ui/lib/FormsyToggle';
-import EditorMaterial from '/client/singles/editor/editor_material.jsx';
 import i18n from 'meteor/universe:i18n';
 import T from '/lib/i18n';
+
+import EditorMaterial from '/client/singles/editor/editor_material.jsx';
 
 const styles = {
   form: {
@@ -29,14 +30,10 @@ const styles = {
 };
 
 class NewsForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.submitForm = this.submitForm.bind(this);
-  }
-  submitForm(model) {
+  submitForm = (model) => {
     const { article } = this.props;
     this.props.upsertArticle(model, article || article._id);
-  }
+  };
   render() {
     const { article = {} } = this.props;
     return (

@@ -2,8 +2,9 @@ import React, { PropTypes } from 'react';
 import IconButton from 'material-ui/IconButton';
 import i18n from 'meteor/universe:i18n';
 import { RichUtils } from 'draft-js';
-import { BLOCK_TYPES } from './config';
 import { grey800 } from 'material-ui/styles/colors';
+
+import { BLOCK_TYPES } from './config';
 
 const styles = {
   toolbarBtn: {
@@ -12,14 +13,10 @@ const styles = {
 };
 
 class BlockControls extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleBlockType = this.toggleBlockType.bind(this);
-  }
-  toggleBlockType(blockType) {
+  toggleBlockType = (blockType) => {
     const { changeEditor, editorState } = this.props;
     changeEditor(RichUtils.toggleBlockType(editorState, blockType));
-  }
+  };
   render() {
     const { blockType } = this.props;
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
-import MaterialUiContainer from './material-ui-container';
 import AppBar from 'material-ui/AppBar';
+
+import MaterialUiContainer from './material-ui-container';
 import AdminNavBar from '../containers/admin_navbar';
 
 const AdminLayout = ({ content = () => null }) => (

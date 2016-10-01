@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import i18n from 'meteor/universe:i18n';
+
 import { FONT_STYLES } from './config';
 
 const styles = {
@@ -19,14 +20,10 @@ const styles = {
 };
 
 class FontControls extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleFont = this.toggleFont.bind(this);
-  }
-  toggleFont(e, key, value) {
+  toggleFont = (e, key, value) => {
     const { changeEditor, editorState } = this.props;
     // changeEditor();
-  }
+  };
   render() {
     const { currentStyle } = this.props;
     return (

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+
 import { SIZE_STYLES } from './config';
 
 const styles = {
@@ -18,14 +19,10 @@ const styles = {
 };
 
 class FontSizeControls extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleFontSize = this.toggleFontSize.bind(this);
-  }
-  toggleFontSize(e, key, value) {
+  toggleFontSize = (e, key, value) => {
     const { changeEditor, editorState } = this.props;
     // changeEditor();
-  }
+  };
   render() {
     const { currentStyle } = this.props;
     return (

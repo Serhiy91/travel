@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import IconButton from 'material-ui/IconButton';
 import i18n from 'meteor/universe:i18n';
-import { RichUtils } from 'draft-js';
-import { INLINE_STYLES } from './config';
 import { grey800 } from 'material-ui/styles/colors';
+import { RichUtils } from 'draft-js';
+
+import { INLINE_STYLES } from './config';
 
 const styles = {
   toolbarBtn: {
@@ -12,14 +13,10 @@ const styles = {
 };
 
 class InlineControls extends React.Component {
-  constructor(props) {
-    super(props);
-    this.toggleInlineType = this.toggleInlineType.bind(this);
-  }
-  toggleInlineType(command) {
+  toggleInlineType = (command) => {
     const { changeEditor, editorState } = this.props;
     changeEditor(RichUtils.toggleInlineStyle(editorState, command));
-  }
+  };
   render() {
     const { currentStyle } = this.props;
     return (
