@@ -35,7 +35,11 @@ const style = {
   },
 };
 
-class SignIn extends React.Component {
+export default class SignIn extends React.Component {
+  static propTypes = {
+    signIn: PropTypes.func,
+    loginError: PropTypes.string,
+  };
   state = {
     canSubmit: false,
   };
@@ -102,10 +106,3 @@ class SignIn extends React.Component {
     );
   }
 }
-
-SignIn.propTypes = {
-  signIn: PropTypes.func,
-  loginError: PropTypes.string,
-};
-
-export default SignIn;

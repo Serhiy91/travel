@@ -18,7 +18,12 @@ const styles = {
   },
 };
 
-class FontSizeControls extends React.Component {
+export default class FontSizeControls extends React.Component {
+  static propTypes = {
+    currentStyle: PropTypes.object,
+    editorState: PropTypes.object,
+    changeEditor: PropTypes.func,
+  };
   toggleFontSize = (e, key, value) => {
     const { changeEditor, editorState } = this.props;
     // changeEditor();
@@ -44,11 +49,3 @@ class FontSizeControls extends React.Component {
     );
   }
 }
-
-FontSizeControls.propTypes = {
-  currentStyle: PropTypes.object,
-  editorState: PropTypes.object,
-  changeEditor: PropTypes.func,
-};
-
-export default FontSizeControls;

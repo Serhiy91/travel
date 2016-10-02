@@ -15,7 +15,11 @@ const styles = {
   },
 };
 
-class AdminNavBar extends React.Component {
+export default class AdminNavBar extends React.Component {
+  static propTypes = {
+    currentRoute: PropTypes.string,
+    goTo: PropTypes.func,
+  };
   getCurrentStyle(route) {
     return !!~this.props.currentRoute.indexOf(route) ? styles.menuItem : {};
   }
@@ -61,10 +65,3 @@ class AdminNavBar extends React.Component {
     );
   }
 }
-
-AdminNavBar.propTypes = {
-  currentRoute: PropTypes.string,
-  goTo: PropTypes.func,
-};
-
-export default AdminNavBar;

@@ -19,7 +19,12 @@ const styles = {
   },
 };
 
-class HeaderControls extends React.Component {
+export default class HeaderControls extends React.Component {
+  static propTypes = {
+    blockType: PropTypes.string,
+    editorState: PropTypes.object,
+    changeEditor: PropTypes.func,
+  };
   toggleBlockType = (e, key, value) => {
     const { changeEditor, editorState } = this.props;
     changeEditor(RichUtils.toggleBlockType(editorState, value));
@@ -50,11 +55,3 @@ class HeaderControls extends React.Component {
     );
   }
 }
-
-HeaderControls.propTypes = {
-  blockType: PropTypes.string,
-  editorState: PropTypes.object,
-  changeEditor: PropTypes.func,
-};
-
-export default HeaderControls;

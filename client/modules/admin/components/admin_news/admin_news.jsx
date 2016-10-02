@@ -9,7 +9,13 @@ import {
 
 import AdminNewsItem from './admin_news_item.jsx';
 
-class AdminNews extends React.Component {
+export default class AdminNews extends React.Component {
+  static propTypes = {
+    articles: PropTypes.array,
+    goTo: PropTypes.func,
+    togglePublicState: PropTypes.func,
+    deleteArticle: PropTypes.func,
+  };
   render() {
     const { articles, goTo, togglePublicState, deleteArticle } = this.props;
     return (
@@ -55,12 +61,3 @@ class AdminNews extends React.Component {
     );
   }
 }
-
-AdminNews.propTypes = {
-  articles: PropTypes.array,
-  goTo: PropTypes.func,
-  togglePublicState: PropTypes.func,
-  deleteArticle: PropTypes.func,
-};
-
-export default AdminNews;

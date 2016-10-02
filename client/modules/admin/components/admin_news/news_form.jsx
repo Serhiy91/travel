@@ -29,7 +29,11 @@ const styles = {
   },
 };
 
-class NewsForm extends React.Component {
+export default class NewsForm extends React.Component {
+  static propTypes = {
+    article: PropTypes.object,
+    upsertArticle: PropTypes.func,
+  };
   submitForm = (model) => {
     const { article } = this.props;
     this.props.upsertArticle(model, article || article._id);
@@ -76,10 +80,3 @@ class NewsForm extends React.Component {
     );
   }
 }
-
-NewsForm.propTypes = {
-  article: PropTypes.object,
-  upsertArticle: PropTypes.func,
-};
-
-export default NewsForm;

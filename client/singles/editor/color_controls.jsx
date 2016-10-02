@@ -14,7 +14,12 @@ const styles = {
   },
 };
 
-class ColorControls extends React.Component {
+export default class ColorControls extends React.Component {
+  static propTypes = {
+    currentStyle: PropTypes.object,
+    editorState: PropTypes.object,
+    changeEditor: PropTypes.func,
+  };
   toggleColor = (e, child) => {
     const { changeEditor, editorState } = this.props;
     const toggledColor = child.props.primaryText;
@@ -66,11 +71,3 @@ class ColorControls extends React.Component {
     );
   }
 }
-
-ColorControls.propTypes = {
-  currentStyle: PropTypes.object,
-  editorState: PropTypes.object,
-  changeEditor: PropTypes.func,
-};
-
-export default ColorControls;

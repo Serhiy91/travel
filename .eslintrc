@@ -18,6 +18,9 @@
     "no-underscore-dangle": [
       "error", { "allow": ["__", "_id"] }
     ],
+    "no-use-before-define": [
+      "error", { "functions": false, "classes": true }
+    ],
     "import/no-unresolved": 0,
     "react/display-name": 0
   }

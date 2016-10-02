@@ -12,7 +12,12 @@ const styles = {
   },
 };
 
-class InlineControls extends React.Component {
+export default class InlineControls extends React.Component {
+  static propTypes = {
+    editorState: PropTypes.object,
+    currentStyle: PropTypes.object,
+    changeEditor: PropTypes.func,
+  };
   toggleInlineType = (command) => {
     const { changeEditor, editorState } = this.props;
     changeEditor(RichUtils.toggleInlineStyle(editorState, command));
@@ -35,11 +40,3 @@ class InlineControls extends React.Component {
     );
   }
 }
-
-InlineControls.propTypes = {
-  editorState: PropTypes.object,
-  currentStyle: PropTypes.object,
-  changeEditor: PropTypes.func,
-};
-
-export default InlineControls;

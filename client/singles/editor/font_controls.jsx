@@ -19,7 +19,12 @@ const styles = {
   },
 };
 
-class FontControls extends React.Component {
+export default class FontControls extends React.Component {
+  static propTypes = {
+    currentStyle: PropTypes.object,
+    editorState: PropTypes.object,
+    changeEditor: PropTypes.func,
+  };
   toggleFont = (e, key, value) => {
     const { changeEditor, editorState } = this.props;
     // changeEditor();
@@ -46,11 +51,3 @@ class FontControls extends React.Component {
     );
   }
 }
-
-FontControls.propTypes = {
-  currentStyle: PropTypes.object,
-  editorState: PropTypes.object,
-  changeEditor: PropTypes.func,
-};
-
-export default FontControls;

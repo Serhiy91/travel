@@ -1,9 +1,8 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
-import InsertLink from 'material-ui/svg-icons/editor/insert-link';
-import InsertPhoto from 'material-ui/svg-icons/editor/insert-photo';
-import { Editor, EditorState, RichUtils } from 'draft-js';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
+import {
+  Editor, EditorState, RichUtils, CompositeDecorator, Entity,
+} from 'draft-js';
 
 import InlineControls from './inline_controls';
 import BlockControls from './block_controls';
@@ -11,6 +10,10 @@ import HeaderControls from './header_controls';
 import ColorControls from './color_controls';
 import FontControls from './font_controls';
 import FontSizeControls from './font_size_controls';
+import LinkBtn from './link-btn';
+import Link from './link';
+import Media from './media';
+import MediaControls from './media_controls';
 import { COLOR_STYLE_MAP } from './config';
 
 const styles = {
@@ -23,10 +26,17 @@ const styles = {
   },
 };
 
-class EditorMaterial extends React.Component {
-  state = {
-    editorState: EditorState.createEmpty(),
-  };
+export default class EditorMaterial extends React.Component {
+  constructor(props) {
+    super(props);
+    const decorator = new CompositeDecorator([{
+      strategy: findLinkEntities,
+      component: Link,
+    }]);
+    this.state = {
+      editorState: EditorState.createEmpty(decorator),
+    };
+  }
   onChange = (editorState) => {
     this.setState({ editorState });
   };
@@ -90,23 +100,20 @@ class EditorMaterial extends React.Component {
             />
             <ToolbarSeparator style={styles.toolbarSeparator} />
 
-            <IconButton
-              style={styles.toolbarBtn}
-              tooltip="insert_link"
-            >
-              <InsertLink />
-            </IconButton>
-            <IconButton
-              style={styles.toolbarBtn}
-              tooltip="insert_image"
-            >
-              <InsertPhoto />
-            </IconButton>
+            <LinkBtn
+              editorState={editorState}
+              changeEditor={this.onChange}
+            />
+            <MediaControls
+              editorState={editorState}
+              changeEditor={this.onChange}
+            />
             <ToolbarSeparator style={styles.toolbarSeparator} />
           </ToolbarGroup>
         </Toolbar>
 
         <Editor
+          blockRendererFn={mediaBlockRenderer}
           customStyleMap={COLOR_STYLE_MAP}
           editorState={editorState}
           handleKeyCommand={this.handleKeyCommand}
@@ -117,4 +124,22 @@ class EditorMaterial extends React.Component {
   }
 }
 
-export default EditorMaterial;
+function findLinkEntities(contentBlock, callback) {
+  contentBlock.findEntityRanges((character) => {
+    const entityKey = character.getEntity();
+    return (
+      entityKey !== null &&
+      Entity.get(entityKey).getType() === 'LINK'
+    );
+  }, callback);
+}
+
+function mediaBlockRenderer(block) {
+  if (block.getType() === 'atomic') {
+    return {
+      component: Media,
+      editable: false,
+    };
+  }
+  return null;
+}

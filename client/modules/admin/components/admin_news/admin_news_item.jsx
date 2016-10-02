@@ -5,7 +5,14 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import moment from 'moment';
 import { TableRow, TableRowColumn } from 'material-ui/Table';
 
-class AdminNewsItem extends React.Component {
+export default class AdminNewsItem extends React.Component {
+  static propTypes = {
+    i: PropTypes.number,
+    article: PropTypes.object,
+    goTo: PropTypes.func,
+    togglePublicState: PropTypes.func,
+    deleteArticle: PropTypes.func,
+  };
   render() {
     const { article, i, togglePublicState, deleteArticle, goTo } = this.props;
     return (
@@ -41,13 +48,3 @@ class AdminNewsItem extends React.Component {
     );
   }
 }
-
-AdminNewsItem.propTypes = {
-  i: PropTypes.number,
-  article: PropTypes.object,
-  goTo: PropTypes.func,
-  togglePublicState: PropTypes.func,
-  deleteArticle: PropTypes.func,
-};
-
-export default AdminNewsItem;

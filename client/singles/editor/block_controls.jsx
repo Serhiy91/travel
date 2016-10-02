@@ -12,7 +12,12 @@ const styles = {
   },
 };
 
-class BlockControls extends React.Component {
+export default class BlockControls extends React.Component {
+  static propTypes = {
+    blockType: PropTypes.string,
+    editorState: PropTypes.object,
+    changeEditor: PropTypes.func,
+  };
   toggleBlockType = (blockType) => {
     const { changeEditor, editorState } = this.props;
     changeEditor(RichUtils.toggleBlockType(editorState, blockType));
@@ -35,11 +40,3 @@ class BlockControls extends React.Component {
     );
   }
 }
-
-BlockControls.propTypes = {
-  blockType: PropTypes.string,
-  editorState: PropTypes.object,
-  changeEditor: PropTypes.func,
-};
-
-export default BlockControls;
