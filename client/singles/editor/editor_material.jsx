@@ -14,7 +14,7 @@ import LinkBtn from './link-btn';
 import Link from './link';
 import Media from './media';
 import MediaControls from './media_controls';
-import { COLOR_STYLE_MAP } from './config';
+import { customStyleMap } from './config';
 
 const styles = {
   toolbarBtn: {
@@ -112,13 +112,15 @@ export default class EditorMaterial extends React.Component {
           </ToolbarGroup>
         </Toolbar>
 
-        <Editor
-          blockRendererFn={mediaBlockRenderer}
-          customStyleMap={COLOR_STYLE_MAP}
-          editorState={editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange}
-        />
+        <div className="admin-editor">
+          <Editor
+            blockRendererFn={mediaBlockRenderer}
+            customStyleMap={customStyleMap}
+            editorState={editorState}
+            handleKeyCommand={this.handleKeyCommand}
+            onChange={this.onChange}
+          />
+        </div>
       </div>
     );
   }

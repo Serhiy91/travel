@@ -27,7 +27,7 @@ export default class ColorControls extends React.Component {
 
     // Let's just allow one color at a time. Turn off all active colors.
     const nextContentState = Object.keys(COLOR_STYLE_MAP).reduce((contentState, color) => (
-        Modifier.removeInlineStyle(contentState, selection, color)
+      Modifier.removeInlineStyle(contentState, selection, color)
     ), editorState.getCurrentContent());
 
     let nextEditorState = EditorState.push(editorState, nextContentState, 'change-inline-style');
@@ -36,8 +36,7 @@ export default class ColorControls extends React.Component {
     // Unset style override for current color.
     if (selection.isCollapsed()) {
       nextEditorState = currentStyle.reduce(
-        (state, color) => RichUtils.toggleInlineStyle(state, color),
-        nextEditorState
+        (state, color) => RichUtils.toggleInlineStyle(state, color), nextEditorState
       );
     }
 
