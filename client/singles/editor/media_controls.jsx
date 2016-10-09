@@ -6,6 +6,7 @@ import Audiotrack from 'material-ui/svg-icons/image/audiotrack';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
+import i18n from 'meteor/universe:i18n';
 import { Entity, AtomicBlockUtils } from 'draft-js';
 
 const styles = {
@@ -60,21 +61,21 @@ export default class Image extends React.Component {
         <IconButton
           onTouchTap={(e) => this.handleOpenUrlInput(e, 'image')}
           style={styles.toolbarBtn}
-          tooltip="insert_image"
+          tooltip={i18n.__('insert_image')}
         >
           <InsertPhoto />
         </IconButton>
         <IconButton
           onTouchTap={(e) => this.handleOpenUrlInput(e, 'video')}
           style={styles.toolbarBtn}
-          tooltip="insert_video"
+          tooltip={i18n.__('insert_video')}
         >
           <Videocam />
         </IconButton>
         <IconButton
           onTouchTap={(e) => this.handleOpenUrlInput(e, 'audio')}
           style={styles.toolbarBtn}
-          tooltip="insert_audio"
+          tooltip={i18n.__('insert_audio')}
         >
           <Audiotrack />
         </IconButton>
@@ -86,13 +87,13 @@ export default class Image extends React.Component {
         >
           <div style={styles.linkForm}>
             <TextField
-              hintText="paste_link"
+              hintText={i18n.__('paste_link')}
               ref="urlField"
               onChange={this.urlInputChange}
               value={urlValue}
             />
             <RaisedButton
-              label="apply"
+              label={i18n.__('apply')}
               onTouchTap={this.confirmMedia}
               style={styles.linkBtn}
               primary

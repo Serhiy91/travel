@@ -4,6 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import InsertLink from 'material-ui/svg-icons/editor/insert-link';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import i18n from 'meteor/universe:i18n';
 import { RichUtils, Entity } from 'draft-js';
 
 const styles = {
@@ -67,7 +68,7 @@ export default class Link extends React.Component {
         <IconButton
           onTouchTap={this.handleOpenUrlInput}
           style={styles.toolbarBtn}
-          tooltip="insert_link"
+          tooltip={i18n.__('insert_link')}
         >
           <InsertLink />
         </IconButton>
@@ -79,13 +80,13 @@ export default class Link extends React.Component {
         >
           <div style={styles.linkForm}>
             <TextField
-              hintText="paste_link"
+              hintText={i18n.__('paste_link')}
               ref="linkField"
               onChange={this.urlInputChange}
               value={urlValue}
             />
             <RaisedButton
-              label="apply"
+              label={i18n.__('apply')}
               onTouchTap={this.applyLink}
               style={styles.linkBtn}
               primary

@@ -117,8 +117,9 @@ export default class EditorMaterial extends React.Component {
             blockRendererFn={mediaBlockRenderer}
             customStyleMap={customStyleMap}
             editorState={editorState}
-            handleKeyCommand={this.handleKeyCommand}
+            handleKeyCommand={this.hanleKeyCommand}
             onChange={this.onChange}
+            stripPastedStyles
           />
         </div>
       </div>

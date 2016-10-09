@@ -30,5 +30,20 @@
   "header_6": "Заголовок 6",
   "number_list": "Нумерований список",
   "bulleted_list": "Маркований список",
-  "blockquote": "Цитата"
+  "blockquote": "Цитата",
+  "arial": "Arial",
+  "times-new-roman": "Times New Roman",
+  "calibri": "Calibri",
+  "cambria": "Cambria",
+  "comic-sans-ms": "Comic Sans MS",
+  "courier-new": "Courier New",
+  "roboto": "Roboto",
+  "text_color": "Колір тексту",
+  "no_color": "Без кольору",
+  "insert_link": "Вставити посиллання",
+  "paste_link": "Вставити посиллання",
+  "apply": "Підтвердити",
+  "insert_image": "Вставити фото",
+  "insert_video": "Вставити відео",
+  "insert_audio": "Вставити аудіо"
 }

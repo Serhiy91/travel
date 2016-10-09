@@ -57,7 +57,7 @@ export default class FontSizeControls extends React.Component {
     const currentSizeStyle = SIZE_STYLES.find(size => currentStyle.has(size.label));
     return (
       <SelectField
-        value={currentSizeStyle ? currentSizeStyle.label : '12'}
+        value={currentSizeStyle ? currentSizeStyle.label : '16'}
         onChange={this.toggleFontSize}
         style={styles.selectField.style}
         underlineStyle={styles.selectField.underlineStyle}

@@ -62,7 +62,7 @@ export default class ColorControls extends React.Component {
           </IconButton>
         }
       >
-        <MenuItem primaryText="no_color" />
+        <MenuItem primaryText={i18n.__('no_color')} />
         {COLORS.map(color => (
           <MenuItem key={color.label} primaryText={color.label} />
         ))}

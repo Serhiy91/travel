@@ -1,8 +1,31 @@
+.editor-material
+  height 100%
+
 .admin-editor
-  max-width 720px
-  margin 0 auto
-  padding 24px 10px
-  border-left 2px solid rgb(232, 232, 232)
-  border-right 2px solid rgb(232, 232, 232)
+  height calc(100% - 56px)
+  overflow-y auto
   .DraftEditor-root
+    height 100%
     padding 0
+    font-family 'Times New Roman', serif
+    font-size 16pt
+    h1, h2, h3, h4, h5, h6
+      font-family Roboto, sans-serif
+    figure
+      margin 23px 0 0 0
+      img
+        max-width 100%
+    blockquote
+      font-style italic
+      color rgb(158, 158, 158)
+      border-left 2px solid rgb(158, 158, 158)
+      padding-left 15px
+  .DraftEditor-editorContainer
+    height inherit
+  .public-DraftEditor-content
+    min-height calc(100% - 48px)
+    max-width 700px
+    margin 0 auto
+    padding 24px 10px
+    border-left 2px solid rgb(232, 232, 232)
+    border-right 2px solid rgb(232, 232, 232)

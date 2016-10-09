@@ -11,6 +11,11 @@ const styles = {
     style: {
       width: '170px',
     },
+    hintStyle: {
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+    },
     underlineStyle: {
       borderColor: 'rgba(0, 0, 0, 0.17)',
     },
@@ -57,9 +62,10 @@ export default class FontControls extends React.Component {
     const currentFontStyle = FONT_STYLES.find(font => currentStyle.has(font.style));
     return (
       <SelectField
-        value={currentFontStyle ? currentFontStyle.label : 'roboto'}
+        value={currentFontStyle ? currentFontStyle.label : 'times-new-roman'}
         onChange={this.toggleFont}
         style={styles.selectField.style}
+        labelStyle={styles.selectField.hintStyle}
         underlineStyle={styles.selectField.underlineStyle}
         iconStyle={styles.selectField.iconStyle}
         autoWidth
