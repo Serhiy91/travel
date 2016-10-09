@@ -3,6 +3,7 @@ import AdminLayout from '../core/components/admin_layout';
 import CheckRole from '../core/containers/check_role';
 import AdminNews from './containers/admin_news';
 import NewsForm from './containers/news_form';
+import ContactsEditor from './containers/contacts_editor';
 import { mount } from 'react-mounter';
 
 export default function (injectDeps, { FlowRouter }) {
@@ -67,7 +68,7 @@ export default function (injectDeps, { FlowRouter }) {
     name: 'admin.contacts',
     action() {
       mount(MainLayoutCtx, {
-        content: () => <CheckRole admin><div>Contacts</div></CheckRole>,
+        content: () => <CheckRole admin><ContactsEditor /></CheckRole>,
       });
     },
   });

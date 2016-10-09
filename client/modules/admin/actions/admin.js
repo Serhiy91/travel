@@ -18,4 +18,9 @@ export default {
       if (err) console.error(err.reason);
     });
   },
+  updateContacts({ Meteor }, contacts) {
+    Meteor.call('contacts.update', contacts, (err) => {
+      if (err) console.error(err.reason);
+    });
+  },
 };
