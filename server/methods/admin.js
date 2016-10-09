@@ -7,7 +7,7 @@ export default () => {
   Meteor.methods({
     'admin.upsertArticle'(article, articleId) {
       check(article, Object);
-      check(articleId, Match.Maybe(Object));
+      check(articleId, Match.Maybe(String));
       const user = Meteor.user();
       if (!user || !user.isAdmin) throw new Meteor.Error('403', 'Permission denied');
       const date = new Date();

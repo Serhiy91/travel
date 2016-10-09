@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from 'material-ui/Toolbar';
 import {
-  Editor, EditorState, RichUtils, CompositeDecorator, Entity,
+  Editor, EditorState, RichUtils, CompositeDecorator, Entity, convertToRaw, convertFromRaw,
 } from 'draft-js';
 
 import InlineControls from './inline_controls';
@@ -27,18 +27,30 @@ const styles = {
 };
 
 export default class EditorMaterial extends React.Component {
+  static propTypes = {
+    value: PropTypes.object,
+  };
   constructor(props) {
     super(props);
     const decorator = new CompositeDecorator([{
       strategy: findLinkEntities,
       component: Link,
     }]);
-    this.state = {
-      editorState: EditorState.createEmpty(decorator),
-    };
+    let editorState;
+    if (props.value) {
+      const contentState = convertFromRaw(props.value);
+      editorState = EditorState.createWithContent(contentState, decorator);
+    } else {
+      editorState = EditorState.createEmpty(decorator);
+    }
+    this.state = { editorState };
   }
   onChange = (editorState) => {
     this.setState({ editorState });
+  };
+  getRawContent = () => {
+    const { editorState } = this.state;
+    return convertToRaw(editorState.getCurrentContent());
   };
   handleKeyCommand = (command) => {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);

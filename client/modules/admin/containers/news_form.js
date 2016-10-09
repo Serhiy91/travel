@@ -8,7 +8,7 @@ export const composer = ({ context }, onData) => {
     const article = Collections.Articles.findOne(articleId);
     return onData(null, { article });
   }
-  return onData(null, { });
+  if (!articleId) return onData(null, {});
 };
 
 export const depsMapper = (context, actions) => ({

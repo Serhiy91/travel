@@ -36,7 +36,8 @@ export default class NewsForm extends React.Component {
   };
   submitForm = (model) => {
     const { article } = this.props;
-    this.props.upsertArticle(model, article || article._id);
+    model.text = this.refs.editor.getRawContent();
+    this.props.upsertArticle(model, article && article._id);
   };
   render() {
     const { article = {} } = this.props;
@@ -75,7 +76,9 @@ export default class NewsForm extends React.Component {
             </Formsy.Form>
           </div>
         </Paper>
-        <Paper zDepth={1} className="editor-wrapper"><EditorMaterial /></Paper>
+        <Paper zDepth={1} className="editor-wrapper">
+          <EditorMaterial ref="editor" value={article.text} />
+        </Paper>
       </div>
     );
   }
