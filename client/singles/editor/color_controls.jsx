@@ -22,7 +22,7 @@ export default class ColorControls extends React.Component {
   };
   toggleColor = (e, child) => {
     const { changeEditor, editorState } = this.props;
-    const toggledColor = child.props.primaryText;
+    const toggledColor = child.props.value;
     const selection = editorState.getSelection();
 
     // Let's just allow one color at a time. Turn off all active colors.
@@ -64,7 +64,13 @@ export default class ColorControls extends React.Component {
       >
         <MenuItem primaryText={i18n.__('no_color')} />
         {COLORS.map(color => (
-          <MenuItem key={color.label} primaryText={color.label} />
+          <MenuItem key={color.label} value={color.label}>
+            <div
+              className="color-picker-item"
+              style={{ backgroundColor: COLOR_STYLE_MAP[color.style].color }}
+            >
+            </div>
+          </MenuItem>
         ))}
       </IconMenu>
     );
