@@ -1,12 +1,12 @@
 import React from 'react';
 import MaterialUiContainer from './material-ui-container';
-import MainTabMenu from '../containers/main_tab_menu';
+import NavBar from '../containers/nav_bar';
 
 const MainLayout = ({ content = () => null }) => (
   <MaterialUiContainer>
     <div className="main-layout">
       <header>
-        <MainTabMenu />
+        <NavBar />
       </header>
       <div>
         {content()}

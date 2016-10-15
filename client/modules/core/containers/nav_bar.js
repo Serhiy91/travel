@@ -1,5 +1,5 @@
 import { useDeps, composeWithTracker, composeAll } from 'mantra-core';
-import MainTabMenu from '../components/partial/main_tab_menu.jsx';
+import NavBar from '../components/partial/nav_bar.jsx';
 
 export const composer = ({ context }, onData) => {
   const { FlowRouter } = context();
@@ -15,4 +15,4 @@ export const depsMapper = (context, actions) => ({
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(MainTabMenu);
+)(NavBar);

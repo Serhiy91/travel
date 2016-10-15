@@ -5,11 +5,26 @@
     padding 12px
 
 .main-layout
-  padding-top 48px
+  padding-top 64px
+  @media(max-width 991px)
+    padding-top 48px
+  .lending-menu
+    position absolute
+    display flex
+    top 0
+    width 100%
+    nav
+      margin 0 auto
+  .main-menu,
   .main-tab-menu
     position fixed
     top 0
-    transition top 0.2s ease-in-out
     width 100%
+  .main-tab-menu
+    transition top 0.2s ease-in-out
   .main-nav-up
     top -48px
+
+.main-menu
+  .menu-list
+    margin-left 50px
