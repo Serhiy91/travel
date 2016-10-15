@@ -45,5 +45,10 @@
   "apply": "Підтвердити",
   "insert_image": "Вставити фото",
   "insert_video": "Вставити відео",
-  "insert_audio": "Вставити аудіо"
+  "insert_audio": "Вставити аудіо",
+  "city": "Місто",
+  "address": "Адреса",
+  "addition_information": "Додаткова інформація",
+  "phone_number": "телефонний номер",
+  "home": "Головна"
 }
