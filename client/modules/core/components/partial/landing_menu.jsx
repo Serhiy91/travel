@@ -6,6 +6,7 @@ const styles = {
   menuItem: {
     height: '64px',
     color: '#fff',
+    width: '20%',
   },
   menuLabel: {
     paddingLeft: '40px',
@@ -13,8 +14,6 @@ const styles = {
   },
   logo: {
     fontSize: '24px',
-    paddingLeft: '40px',
-    paddingRight: '40px',
     textTransform: 'none',
   },
 };

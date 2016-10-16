@@ -8,7 +8,7 @@ const MainLayout = ({ content = () => null }) => (
       <header>
         <NavBar />
       </header>
-      <div>
+      <div className="main-content">
         {content()}
       </div>
     </div>

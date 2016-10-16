@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'react-mounter';
 
-import LandingPage from './components/landing_page';
+import LandingPage from './containers/landing_page';
 
 export default function (injectDeps, { FlowRouter, MainLayout }) {
   const MainLayoutCtx = injectDeps(MainLayout);

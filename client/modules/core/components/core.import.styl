@@ -5,6 +5,7 @@
     padding 12px
 
 .main-layout
+  height 100%
   padding-top 64px
   @media(max-width 991px)
     padding-top 48px
@@ -15,15 +16,19 @@
     width 100%
     nav
       margin 0 auto
+      width 900px
   .main-menu,
   .main-tab-menu
     position fixed
     top 0
     width 100%
+    z-index 1000
   .main-tab-menu
     transition top 0.2s ease-in-out
   .main-nav-up
     top -48px
+  .main-content
+    height inherit
 
 .main-menu
   .menu-list

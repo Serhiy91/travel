@@ -1,12 +1,61 @@
 .landing-page
+  height 80%
   .landing-media
-    height 100%
-    background url('images/main-bg.jpg')
-    background-size contain
+    height inherit
+    background url('images/landing-bg-lg.jpg')
+    background-size cover
     position absolute
     width 100%
     top 0
     z-index -1
     .background-darken
       height 100%
-      background rgba(0, 0, 0, .7)
+      background rgba(0, 0, 0, .3)
+
+  .landing-media-content
+    height 100%
+    color #fff
+    display flex
+    align-items center
+  .tours-content
+    margin 0 auto
+    position relative
+    top -64px
+    text-align center
+    max-width 800px
+    padding 0 10px
+  .app-title
+    font-weight 400
+    font-size 2.5em
+  .app-description
+    font-weight 400
+
+  .landing-content
+    position relative
+    top -65px
+    .landing-paper-block
+      transition all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms
+      box-sizing border-box
+      -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+      box-shadow rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px
+      border-radius 5px
+      background-color #fff
+      margin 0 24px
+      padding 24px
+      height 600px
+
+  .landing-footer
+    position: relative;
+    padding: 18px 24px 14px 48px;
+    top: -65px;
+
+  @media(max-width 991px)
+    .app-title
+      font-size 1.5em
+      font-weight 500
+    .landing-content
+      .landing-paper-block
+        margin 0
+        border-radius 0
+    .landing-footer
+      padding-left: 24px;
