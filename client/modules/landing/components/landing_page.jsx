@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import Divider from 'material-ui/Divider';
 import T from '/lib/i18n';
 
 import MainServices from './main_services';
+import Footer from './landing-footer';
 import HotTours from '../containers/hot_tours';
 import LastNews from '../containers/last_news';
 
@@ -24,10 +26,12 @@ const LandingPage = ({ goTo }) => (
       </div>
     </div>
     <div className="landing-content">
-      <div className="landing-paper-block">
+      <div className="container-fluid landing-paper-block">
         <MainServices />
+        <Divider className="visible-xs" />
         <HotTours />
         <LastNews />
+        <Footer />
       </div>
     </div>
     <div className="landing-footer muted">
