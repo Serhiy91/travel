@@ -8,7 +8,7 @@ import Footer from './landing-footer';
 import HotTours from '../containers/hot_tours';
 import LastNews from '../containers/last_news';
 
-const LandingPage = ({ goTo }) => (
+const LandingPage = ({ goTo, pathTo }) => (
   <div className="landing-page">
     <div className="landing-media">
       <div className="background-darken">
@@ -31,7 +31,7 @@ const LandingPage = ({ goTo }) => (
         <Divider className="visible-xs" />
         <HotTours />
         <LastNews />
-        <Footer />
+        <Footer pathTo={pathTo} />
       </div>
     </div>
     <div className="landing-footer muted">
@@ -42,6 +42,7 @@ const LandingPage = ({ goTo }) => (
 
 LandingPage.propTypes = {
   goTo: PropTypes.func,
+  pathTo: PropTypes.func,
 };
 
 export default LandingPage;

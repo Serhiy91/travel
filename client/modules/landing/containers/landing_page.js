@@ -7,6 +7,7 @@ export const composer = ({ context }, onData) => {
 
 export const depsMapper = (context, actions) => ({
   goTo: actions.core.goTo,
+  pathTo: actions.core.pathTo,
   context: () => context,
 });
 
