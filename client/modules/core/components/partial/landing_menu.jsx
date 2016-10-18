@@ -5,6 +5,7 @@ import T from '/lib/i18n';
 const styles = {
   menuItem: {
     height: '64px',
+    lineHeight: '64px',
     color: '#fff',
     width: '20%',
   },
@@ -16,44 +17,52 @@ const styles = {
     fontSize: '24px',
     textTransform: 'none',
   },
+  title: {
+    height: '60px',
+    lineHeight: '60px',
+    color: '#fff',
+    width: '100%',
+  },
 };
 
 export default class MainMenu extends React.Component {
   static propTypes = {
-    goTo: PropTypes.func,
+    pathTo: PropTypes.func,
   };
   render() {
-    const { goTo } = this.props;
+    const { pathTo } = this.props;
     return (
       <div className="lending-menu">
         <nav>
           <FlatButton
             label={<T>tours</T>}
-            onTouchTap={() => goTo('tours')}
+            href={pathTo('/tours')}
             style={styles.menuItem}
             labelStyle={styles.menuLabel}
           />
           <FlatButton
             label={<T>visas</T>}
-            onTouchTap={() => goTo('visas')}
+            href={pathTo('/visas')}
             style={styles.menuItem}
             labelStyle={styles.menuLabel}
           />
-          <FlatButton
-            label="Visa&Travel"
-            style={styles.menuItem}
-            labelStyle={styles.logo}
-            disabled
-          />
+          <h1>
+            <FlatButton
+              label="Visa&Travel"
+              style={styles.title}
+              labelStyle={styles.logo}
+              disabled
+            />
+          </h1>
           <FlatButton
             label={<T>news</T>}
-            onTouchTap={() => goTo('news')}
+            href={pathTo('/news')}
             style={styles.menuItem}
             labelStyle={styles.menuLabel}
           />
           <FlatButton
             label={<T>contacts</T>}
-            onTouchTap={() => goTo('contacts')}
+            href={pathTo('/contacts')}
             style={styles.menuItem}
             labelStyle={styles.menuLabel}
           />
